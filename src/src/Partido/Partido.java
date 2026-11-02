@@ -54,6 +54,18 @@ public class Partido {
         this.eventos = new ArrayList<>();
     }
 
+    public Club getClubLocal() {
+        return clubLocal;
+    }
+
+    public Club getClubVisitante() {
+        return clubVisitante;
+    }
+
+    public LocalDateTime getFechaHora() {
+        return fechaHora;
+    }
+
     public void iniciarPartido() {
         if (estado != EstadoPartido.PROGRAMADO) {
             throw new IllegalStateException("No se puede iniciar");

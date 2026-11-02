@@ -1,9 +1,11 @@
 package Evento;
 
+import Persona.Jugador;
+
 public class Falta extends Evento {
 
-    public Falta(int minuto) {
-        super(minuto);
+    public Falta(int minuto, Jugador jugador) {
+        super(minuto,jugador);
     }
 
     @Override
