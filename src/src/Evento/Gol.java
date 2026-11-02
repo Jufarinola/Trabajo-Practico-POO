@@ -1,6 +1,7 @@
 package Evento;
 
 import Club.Club;
+import Partido.Partido;
 import Persona.Jugador;
 
 public class Gol extends Evento {
@@ -8,10 +9,8 @@ public class Gol extends Evento {
     private String tipoGol;
     private Club club;
 
-    public Gol(int minuto, String tipoGol,
-               Jugador jugador, Club club) {
-
-        super(minuto,jugador);
+    public Gol(int minuto, Jugador jugador, Partido partido) {
+        super(minuto,jugador,partido);
         this.tipoGol = tipoGol;
         this.club = club;
     }

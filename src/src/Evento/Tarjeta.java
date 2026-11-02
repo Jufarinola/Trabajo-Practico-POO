@@ -1,13 +1,14 @@
 package Evento;
 
+import Partido.Partido;
 import Persona.Jugador;
 
 public class Tarjeta extends Evento {
 
     private String color;
 
-    public Tarjeta(int minuto, Jugador jugador, String color) {
-        super(minuto, jugador);
+    public Tarjeta(int minuto, Jugador jugador, Partido partido) {
+        super(minuto,jugador,partido);
         this.color = color;
     }
 

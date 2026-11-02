@@ -1,14 +1,15 @@
 package Evento;
 
 import Persona.Jugador;
+import Partido.Partido;
 
 public class Cambio extends Evento {
 
     private Jugador jugadorEntra;
 
     public Cambio(int minuto, Jugador jugadorEntra,
-                  Jugador jugadorSale) {
-        super(minuto, jugadorSale);
+                  Jugador jugadorSale, Partido partido) {
+        super(minuto, jugadorSale, partido);
         this.jugadorEntra = jugadorEntra;
     }
 
