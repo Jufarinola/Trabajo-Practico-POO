@@ -21,6 +21,10 @@ public class Club {
         this.entrenador = new ArrayList<>();
     }
 
+    public String getNombre(){
+        return nombre;
+    }
+
     public void agregarContrato(Contrato contrato) {
         contratos.add(contrato);
     }

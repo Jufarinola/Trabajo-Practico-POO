@@ -6,15 +6,13 @@ import Persona.Jugador;
 public class Gol extends Evento {
 
     private String tipoGol;
-    private Jugador autor;
     private Club club;
 
     public Gol(int minuto, String tipoGol,
-               Jugador autor, Club club) {
+               Jugador jugador, Club club) {
 
-        super(minuto);
+        super(minuto,jugador);
         this.tipoGol = tipoGol;
-        this.autor = autor;
         this.club = club;
     }
 
@@ -22,13 +20,11 @@ public class Gol extends Evento {
         return club;
     }
 
-    public Jugador getAutor() {
-        return autor;
-    }
-
     @Override
     public String obtenerDescripcion() {
-        return "Gol de tipo " + tipoGol
-                + " en el minuto " + getMinuto();
+        return "Minuto " + getMinuto()
+                + " - Gol de " + getJugador().getNombre()
+                + " (" + club.getNombre() + ")"
+                + " - Tipo: " + tipoGol;
     }
 }
