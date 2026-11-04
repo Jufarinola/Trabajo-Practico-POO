@@ -5,6 +5,7 @@ import Estadio.Estadio;
 import Evento.Evento;
 import Persona.Arbitro;
 import Evento.Gol;
+import Torneo.Torneo;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -28,17 +29,15 @@ public class Partido {
     private Estadio estadio;
     private List<Evento> eventos;
 
+    private Torneo torneo;
+
     public Partido(LocalDateTime fechaHora,
                    Club clubLocal,
                    Club clubVisitante,
                    Arbitro arbitroPrincipal,
                    Arbitro arbitroAsistente1,
-                   Arbitro arbitroAsistente2) {
-
-        if (clubLocal == null || clubVisitante == null
-                || clubLocal == clubVisitante) {
-            throw new IllegalArgumentException("Clubes invalidos");
-        }
+                   Arbitro arbitroAsistente2,
+                   Torneo torneo) {
 
         this.fechaHora = fechaHora;
         this.clubLocal = clubLocal;
@@ -52,8 +51,11 @@ public class Partido {
         this.golesLocal = 0;
         this.golesVisitante = 0;
         this.eventos = new ArrayList<>();
+
+        this.torneo = torneo;
     }
 
+    //Getters
     public Club getClubLocal() {
         return clubLocal;
     }
@@ -66,6 +68,21 @@ public class Partido {
         return fechaHora;
     }
 
+    public Torneo getTorneo() {return torneo;}
+
+    public EstadoPartido getEstado() {return estado;}
+
+    public int getGolesLocal() {
+        return golesLocal;
+    }
+
+    public int getGolesVisitante() {
+        return golesVisitante;
+    }
+
+
+
+    //Metodos
     public void iniciarPartido() {
         if (estado != EstadoPartido.PROGRAMADO) {
             throw new IllegalStateException("No se puede iniciar");
