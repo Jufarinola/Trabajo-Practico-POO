@@ -39,6 +39,17 @@ public class Partido {
                    Arbitro arbitroAsistente2,
                    Torneo torneo) {
 
+        if (fechaHora == null || torneo == null) {
+            throw new IllegalArgumentException("Fecha y torneo obligatorios");
+        }
+        if (clubLocal == null || clubVisitante == null || clubLocal == clubVisitante) {
+            throw new IllegalArgumentException("Deben participar dos clubes distintos");
+        }
+        if (arbitroPrincipal == null || arbitroAsistente1 == null || arbitroAsistente2 == null
+                || arbitroPrincipal == arbitroAsistente1 || arbitroPrincipal == arbitroAsistente2
+                || arbitroAsistente1 == arbitroAsistente2) {
+            throw new IllegalArgumentException("Se requieren tres arbitros distintos");
+        }
         this.fechaHora = fechaHora;
         this.clubLocal = clubLocal;
         this.clubVisitante = clubVisitante;
@@ -55,7 +66,6 @@ public class Partido {
         this.torneo = torneo;
     }
 
-    //Getters
     public Club getClubLocal() {
         return clubLocal;
     }
@@ -82,7 +92,6 @@ public class Partido {
 
 
 
-    //Metodos
     public void iniciarPartido() {
         if (estado != EstadoPartido.PROGRAMADO) {
             throw new IllegalStateException("No se puede iniciar");
@@ -105,6 +114,10 @@ public class Partido {
 
         if (evento == null) {
             throw new IllegalArgumentException("Evento nulo");
+        }
+
+        if (evento.getPartido() != this) {
+            throw new IllegalArgumentException("El evento pertenece a otro partido");
         }
 
         if (eventos.contains(evento)) {
