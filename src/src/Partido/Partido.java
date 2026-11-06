@@ -9,6 +9,7 @@ import Torneo.Torneo;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Partido {
@@ -81,6 +82,8 @@ public class Partido {
     public Torneo getTorneo() {return torneo;}
 
     public EstadoPartido getEstado() {return estado;}
+
+    public LocalDateTime getFecha(){return fechaHora;}
 
     public int getGolesLocal() {
         return golesLocal;

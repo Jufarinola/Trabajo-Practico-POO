@@ -12,8 +12,10 @@ import java.util.concurrent.RecursiveTask;
 public class Jugador extends Persona{
     private String posicion;
     private String numeroCamiseta;
+    private Integer CantidadGoles;
     private Double valorMercado;
     private List<Contrato> contrato;
+    Integer cantidadTarjetas;
 
 
     public Jugador(
@@ -23,7 +25,9 @@ public class Jugador extends Persona{
             Date fechaNacimiento,
             String posicion,
             String numeroCamiseta,
-            Double valorMercado
+            Double valorMercado,
+            Integer CantidadGoles,
+            Integer cantidadTarjetas
             ){
 
         super(dni, nombre, apellido, fechaNacimiento);
@@ -31,7 +35,13 @@ public class Jugador extends Persona{
         this.numeroCamiseta = numeroCamiseta;
         this.valorMercado = valorMercado;
         this.contrato = new ArrayList<>();
+        this.CantidadGoles = CantidadGoles;
+        this.cantidadTarjetas = cantidadTarjetas;
     }
+
+    public Integer getCantidadGoles(){return CantidadGoles;}
+    public Integer getCantidadTarjetas(){return cantidadTarjetas;}
+    public String getNumeroCamiseta(){return numeroCamiseta;}
 
     public Club ObtenerClubActual(){
         for (Contrato contrato : contrato) {
